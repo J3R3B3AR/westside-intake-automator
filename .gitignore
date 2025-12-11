@@ -1,0 +1,20 @@
+# Local tooling & caches
+.vscode/
+.venv/
+__pycache__/
+*.pyc
+
+# Robot runtime output
+output/
+log/
+report.html
+log.html
+output.xml
+
+# Secrets / credentials
+oauth_client.json
+service_account.json
+
+# OS cruft
+.DS_Store
+Thumbs.db

@@ -1,0 +1,6 @@
+rpaframework>=31.1.0
+rpaframework-google>=11.0.1
+pdfplumber>=0.11.8
+google-auth-oauthlib>=1.2.3
+tenacity>=8.5.0
+fpdf2>=2.8.5

@@ -1,0 +1,10 @@
+tasks:
+  Process Patient Intake PDFs:
+    description: >-
+      Poll a dedicated Gmail inbox and Google Drive for new patient intake PDFs, parse the
+      contents, drive the mock Athenahealth UI, and archive or escalate each
+      record.
+    shell: python -m robot --outputdir output tasks.robot
+
+condaConfigFile: conda.yaml
+artifactsDir: output

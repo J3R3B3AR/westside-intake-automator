@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Mock Athena Intake</title>
+    <style>
+        :root {
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: #1a1a1a;
+            background-color: #f5f7fb;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #f5f7fb 0%, #dfe9ff 100%);
+        }
+
+        .card {
+            max-width: 640px;
+            margin: 0 auto 24px auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(31, 63, 104, 0.15);
+            padding: 32px;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 28px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid #ccd5e0;
+            font-size: 15px;
+        }
+
+        button {
+            background-color: #2563eb;
+            color: #fff;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        #intake-form {
+            display: none;
+        }
+
+        #submit-toast {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 8px;
+            background: #ecfdf5;
+            color: #047857;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <section class="card" id="login-card">
+        <h1>Athenahealth Mock Login</h1>
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" placeholder="testuser@westside.com" />
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" placeholder="MockEHR123!" />
+        <button id="login-submit">Sign In</button>
+        <p id="login-error" style="color:#dc2626; display:none; margin-top:12px;">Invalid credentials.</p>
+    </section>
+
+    <section class="card" id="intake-form">
+        <h1>Patient Intake Form</h1>
+        <div class="grid">
+            <div>
+                <label for="patient-first-name">First Name</label>
+                <input id="patient-first-name" />
+            </div>
+            <div>
+                <label for="patient-last-name">Last Name</label>
+                <input id="patient-last-name" />
+            </div>
+            <div>
+                <label for="patient-dob">DOB (MM/DD/YYYY)</label>
+                <input id="patient-dob" placeholder="02/14/1990" />
+            </div>
+            <div>
+                <label for="patient-phone">Phone</label>
+                <input id="patient-phone" placeholder="555-123-4567" />
+            </div>
+            <div>
+                <label for="patient-email">Email</label>
+                <input id="patient-email" placeholder="patient@example.com" />
+            </div>
+            <div>
+                <label for="patient-insurance">Insurance</label>
+                <input id="patient-insurance" placeholder="Best Health Co" />
+            </div>
+            <div>
+                <label for="patient-member-id">Member ID</label>
+                <input id="patient-member-id" placeholder="A123456789" />
+            </div>
+            <div>
+                <label for="patient-referrer">Referring Physician</label>
+                <input id="patient-referrer" placeholder="Dr. Smith" />
+            </div>
+        </div>
+        <div style="margin-top:20px;">
+            <label for="patient-document">Attach Intake PDF</label>
+            <input type="file" id="patient-document" />
+        </div>
+        <button id="submit-intake">Submit Intake</button>
+        <div id="submit-toast">Intake submission recorded successfully.</div>
+    </section>
+
+    <script>
+        const loginEmail = document.getElementById('login-email');
+        const loginPassword = document.getElementById('login-password');
+        const loginButton = document.getElementById('login-submit');
+        const loginError = document.getElementById('login-error');
+        const intakeForm = document.getElementById('intake-form');
+        const loginCard = document.getElementById('login-card');
+        const submitButton = document.getElementById('submit-intake');
+        const toast = document.getElementById('submit-toast');
+
+        loginButton.addEventListener('click', () => {
+            if (loginEmail.value === 'testuser@westside.com' && loginPassword.value === 'MockEHR123!') {
+                loginError.style.display = 'none';
+                loginCard.style.display = 'none';
+                intakeForm.style.display = 'block';
+            } else {
+                loginError.style.display = 'block';
+            }
+        });
+
+        submitButton.addEventListener('click', () => {
+            toast.style.display = 'block';
+            toast.textContent = 'Intake submission recorded successfully.';
+            setTimeout(() => toast.style.display = 'none', 5000);
+        });
+    </script>
+</body>
+</html>

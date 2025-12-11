@@ -1,0 +1,13 @@
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.10
+  - pip=23.2.1
+  - pip:
+      - rpaframework>=28.3.2
+      - rpaframework-google>=7.0.0
+      - pdfplumber>=0.11.0
+      - google-auth-oauthlib>=1.2.0
+      - tenacity>=8.2.3
+      - fpdf2>=2.8.5
